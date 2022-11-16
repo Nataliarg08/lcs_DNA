@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string.h>
 #include <fstream>
+#include <string>
 using namespace std;
 
 //Funcion para encontrar la LCS más larga
@@ -68,6 +69,13 @@ int percent(int m){
     return p;
 }
 
+string leerArchivo(string namefile){
+    ifstream archivo(namefile.c_str());
+    string linea;
+    getline(archivo,linea);
+    return linea;
+}
+
 int main(){
     //Declaracion del nombre de la nueva especie
     cout<<"--------------------------------------------------------------------------------------"<<endl;
@@ -75,14 +83,56 @@ int main(){
     cout<<"--------------------------------------------------------------------------------------"<<endl;
 
     //Deckaracion de secuencias de ADN
-    char NS[] = "VLREVQLPIWEHEACRQAYEKDLNITNVYMCAGFADGGKDACQGDSGGPMMLPVKTGEFYLIGIVSFGKKCALPGFPGVYTKVTEFLDWIAEHMV";
-    char SB[] = "MIILWSLIVHLQLTCLHLILQTPNLEALDALEIINYQTTKYTIPEVWKEQPVATIGEDVDDQDTEDEESYLKFGDDAEVRTSVSEGLHEGAFCRRSFDGRSGYCILAYQCLHVIREYRVH";
-    char BP[] = "WMTAVYIKQGGIRSVQCGGALVTNRHVITASHCVVNSAGTDVMPADVFSVRLGEHNLYSTDDDSNPIDFAVTSVKHHEHFVLATYLNDIAILTLNDTVTFTDRIRPICLPYRKLRYDDLAMRKPFITGWGTTAFNGPSSA";
-    char PS[] = "EPKKVKDHCSKHSPCQKGGTCVNMPSGPHCLCPQHLTGNHCQKEKCFEDKSKTCYEELHQVPSNCD";
-    char PP[] = "GTRIDICTHRNNVPVICCPLADKHVLAQRISATKCQEYNAAARRLHLTDTGRTFSGKQCVPSVPLIVGGTPTRHGLFPHMAALGWTQGSGSKDQDIKWGCGGALVSELYVLTAAHCATSG";
-    char PK[] = "IEGQFCAGYLPGGRDTCQGDSGGPIHALLPEYNCVAFVVGITSFGKFCAAPNAPGVYTRLYSYLDWIEKIAFKQH";
-    char RS[] = "GTRIDSKPPDMVRLGARQLNETSATQQDIKILIIVLHPKYRSSAYYHDIALLKLTRRVKFSEQVRPACLWQLPELQIPTVVAAGWGRTEFLGAKSNALRQVDLDVVPQMTCKQIYRKERRLPRGI";
-    char SP[] = "MLVNNVFSLLCFPLLMSVVRCSTLSRQRRQFVFPDEEELCSNRFTEEGTCKNVLDCRILLQKNDYNLLKESICGFEGITPKVCCPKSSHVISSTQAPPETTTTERPPKQIPPNLPEVCGIHNTTTTRIIGGREAPIGAWP";
+    string nombreArchivo = "DNA_new.txt";
+    string spongeBob = "DNA_SpongeBob.txt";
+    string blackpanther = "DNA_BlackPanther.txt";
+    string patrick = "DNA_PatrickStar.txt";
+    string perry = "DNA_PerryThePlatypus.txt";
+    string pikachu = "DNA_Pikachu.txt";
+    string rick = "DNA_RickSapiens.txt";
+    string spidy = "DNA_Spiderman.txt";
+
+    string NSL=leerArchivo(nombreArchivo);
+    string SSB=leerArchivo(spongeBob);
+    string SBP=leerArchivo(blackpanther);
+    string SPS=leerArchivo(patrick);
+    string SPP=leerArchivo(perry);
+    string SPK=leerArchivo(pikachu);
+    string SRS=leerArchivo(rick);
+    string SSP=leerArchivo(spidy);
+
+    int lns=NSL.length();
+    char NS[lns+1];
+    strcpy(NS,NSL.c_str());
+    
+    int lsb=SSB.length();
+    char SB[lsb+1];
+    strcpy(SB,SSB.c_str());
+    
+    int lbp=SBP.length();
+    char BP[lbp+1];
+    strcpy(BP,SBP.c_str());
+
+    int lps=SPS.length();
+    char PS[lps+1];
+    strcpy(PS,SPS.c_str());
+
+    int lpp=SPP.length();
+    char PP[lpp+1];
+    strcpy(PP,SPP.c_str());
+
+    int lpk=SPK.length();
+    char PK[lpk+1];
+    strcpy(PK,SPK.c_str());
+
+    int lrs=SRS.length();
+    char RS[lrs+1];
+    strcpy(RS,SRS.c_str());
+
+    int lsp=SSP.length();
+    char SP[lsp+1];
+    strcpy(SP,SSP.c_str());
+
 
     //Arreglo de nombres de esecies
     string species[] = {"Sponge Bob","Black Panther","Patrick Star", "Perry the Platypus", "Pickachu", "Rick Sapiens", "Spiderman"};
